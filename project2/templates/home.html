@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<html>
+<head>
+    <title>Home page</title>
+</head>
+{% block content %}
+    <div class="container">
+    <div class="row">
+    <div class="offset-md-3 col-md-6">
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+    </form><br><br><br>
+    <center><button><a href="/showimage/">Show Images</a></button></center>
+{% endblock %}
+</div>
+</div>
+</div>
+</html>

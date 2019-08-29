@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+<html>
+{% block content %}
+    <body>
+<form method="POST" class="post-form" action="/update/{{pdata.pid}}">
+        {% csrf_token %}
+     {% if product %}
+<h1 class="text-center">Product Details Here</h1>
+<table class="table text-center table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product class</th>
+        <th>Product Color</th>
+        <th>Product Cost</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    {% for i in product %}
+        <tbody>
+        <tr>
+            <td>{{ i.product_id }}</td>
+            <td>{{ i.product_name }}</td>
+            <td>{{ i.product_class }}</td>
+            <td>{{ i.product_color }}</td>
+            <td>{{ i.product_cost}}</td>
+        </tr>
+        </tbody>
+    {% endfor %}
+</table>
+    {% endif %}
+{% endblock %}
+</html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+<html>
+{%block content%}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            {% if imgs %}
+                <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Image </th>
+                </tr>
+                </thead>
+                {% for i in imgs %}
+                    <tbody>
+                    <tr>
+                        <td> {{ i.name }}</td>
+                        <td><img src="{{ i.upload_img.url }}" class=img-responsive"
+                        style="width: 30%;
+                        float: left;
+                        margin-right: -20px;" alt="My Image"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+                </table>
+                {% else %}
+                <h2> No Images </h2>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+</html>

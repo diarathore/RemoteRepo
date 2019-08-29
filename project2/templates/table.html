@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<html>
+<head>
+    <title>Feedback page</title>
+</head>
+{% block content %}
+   {% if product %}
+<h1 class="text-center">Product Details Here</h1>
+<table class="table text-center table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product class</th>
+        <th>Product Color</th>
+        <th>Product Cost</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    {% for i in product %}
+        <tbody>
+        <tr>
+            <td>{{ i.product_id }}</td>
+            <td>{{ i.product_name }}</td>
+            <td>{{ i.product_class }}</td>
+            <td>{{ i.product_color }}</td>
+            <td>{{ i.product_cost}}</td>
+             <td class="btn btn danger"><a href="/edit/{{i.pid }}">Edit</a></td>
+            <td class="btn btn danger"><a href="/delete/">Delete</a> </td>
+        </tr>
+        </tbody>
+    {% endfor %}
+</table>
+       <div class="pagination">
+    <span class="step-links">
+        {% if product.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ product.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ product.number }} of {{ product.paginator.num_pages }}.
+        </span>
+
+        {% if product.has_next %}
+            <a href="?page={{ product.next_page_number }}">next</a>
+            <a href="?page={{ product.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% else %}
+<h2>Data Not Availabe</h2>
+{% endif %}
+{% endblock %}
+</html>

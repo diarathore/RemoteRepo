@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    ul{
+        list-style-type: none;
+        margin: 0px;padding: 0px;
+        overflow: hidden;background-color: #333333;
+    }
+    li{
+        float:left ;
+    }
+    li a{
+        display: block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        padding: 14px 16px;
+    }
+    li a:hover:not(.active){
+        background-color: black;
+        color: white;
+    }
+    .active{
+        background-color: green;
+    }
+    .footer{
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;left: 0;bottom: 0;position: fixed;
+    }
+</style>
+<body>
+<ul>
+    <li><a class="active" href="/home/">Home</a> </li>
+    <li><a href="/contact/">Contact</a> </li>
+    <li><a  href="/about/">About</a> </li>
+    <li><a  href="/feedback/">Feedback</a> </li>
+</ul>
+<center>
+    <h3>Welcome To Website</h3>
+</center>
+{% block content %}
+{% endblock %}
+<footer class="footer">
+    <h3>Copyright reserved@2019</h3>
+</footer>
+</body>
+</html>
